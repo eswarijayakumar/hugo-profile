@@ -14,7 +14,7 @@
 <section id="single">
     <div class="container">
         <div class="title mb-3">
-            <h1 class="text-center mb-4">{{ .Title }}</h1>
+            <h1 class="text-center mb-4">Blogs</h1>
         </div>
         <div class="row justify-content-center">
             {{ if .Params.image }}
@@ -67,7 +67,8 @@
 
 <script>
     var topScroll = document.getElementById("topScroll");
-    window.onscroll = function () { scrollFunction() };
+    window.onscroll = function () { scrollFunction(); };
+    window.onload = function(){assignBlankToAnchor() }
 
     function scrollFunction() {
         if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -76,6 +77,14 @@
             topScroll.style.display = "none";
         }
     }
+
+    function assignBlankToAnchor(){
+        var anchors = document.getElementsByTagName('a');
+        for (var i=0; i<anchors.length; i++){
+            anchors[i].setAttribute('target', '_blank');
+        }
+    }
+
 
     function topFunction() {
         document.body.scrollTop = 0;
